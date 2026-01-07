@@ -4,9 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Ngonyama | CS Student & Ethical Hacker</title>
-    <meta name="description" content="Computer Science student at NUST focused on secure software and ethical hacking.">
+    <title>Martin Ljuljduraj | CS Student </title>
+    <meta name="description" content="Computer Science student at Herbert H. Lehman College focused on Web Development and Artifical Intelligence.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script> // added this as using CDN Tailwind means No config file, No custom colors, only default Tailwind colors work, custom colors must be injected via tailwind.config = {} inside a <script> tag.
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                    'terminal-red': '#DC143C',
+                    'terminal-red-dim': '#8B0000',
+                    'terminal-muted': '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -24,10 +37,10 @@
                             border: '#30363d',
                             text: '#c9d1d9',
                             muted: '#8b949e',
-                            // CHANGED: Accent is now Green (#22c55e) instead of Red
-                            accent: '#22c55e',
-                            // CHANGED: AccentDim is now Darker Green instead of Dark Red
-                            accentDim: '#15803d',
+                            // CHANGED: Accent is now Red (#DC143C) from Green (#22c55e)
+                            accent: '#DC143C',
+                            // CHANGED: AccentDim is now Dark Red from now Darker Green
+                            accentDim: '#8B0000',
                             red: '#ff4757',
                             redDim: '#cc3a47',
                             blue: '#3b82f6',
@@ -84,10 +97,10 @@
         }
     </script>
     <style>
-        /* CHANGED: Scrollbar colors to Green (#22c55e) */
+        /* CHANGED: Scrollbar colors to Red (#DC143C) */
         * {
             scrollbar-width: thin;
-            scrollbar-color: #22c55e #161b22;
+            scrollbar-color: #DC143C #161b22;
         }
         *::-webkit-scrollbar {
             width: 8px;
@@ -96,7 +109,7 @@
             background: #161b22;
         }
         *::-webkit-scrollbar-thumb {
-            background: #22c55e;
+            background: #DC143C;
             border-radius: 4px;
         }
 
@@ -118,8 +131,8 @@
             clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
             transform: translate(-2px, -2px);
             opacity: 0.8;
-            /* CHANGED: Glitch effect color to Green */
-            color: #22c55e;
+            /* CHANGED: Glitch effect color to Red */
+            color: #DC143C;
         }
         .glitch-text:hover::after {
             animation: glitchBottom 0.3s ease-in-out;
@@ -143,7 +156,7 @@
             80% { transform: translate(-3px, 3px); }
         }
 
-        /* CHANGED: Scanline color to Green RGB (34, 197, 94) */
+        /* CHANGED: Scanline color to Red RGB (220, 20, 60,) */
         .scan-line::after {
             content: '';
             position: absolute;
@@ -151,25 +164,25 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(transparent, rgba(34, 197, 94, 0.1), transparent);
+            background: linear-gradient(transparent, rgba(220, 20, 60, 0.1), transparent);
             animation: scan 8s linear infinite;
             pointer-events: none;
         }
 
-        /* CHANGED: Circuit pattern color to Green RGB */
+        /* CHANGED: Circuit pattern color to Red RGB */
         .circuit-pattern {
             background-image:
-                linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
-        /* CHANGED: Box shadow to Green RGB */
+        /* CHANGED: Box shadow to Red RGB */
         .terminal-window {
             background: linear-gradient(180deg, #1a1f2e 0%, #0d1117 100%);
             border: 1px solid #30363d;
             box-shadow:
-                0 0 0 1px rgba(34, 197, 94, 0.1),
+                0 0 0 1px rgba(220, 20, 60, 0.5),   /* red glow */
                 0 25px 50px -12px rgba(0, 0, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
@@ -179,7 +192,7 @@
             position: relative;
             overflow: hidden;
         }
-        /* CHANGED: Hover gradient to Green RGB */
+        /* CHANGED: Hover gradient to Red RGB */
         .card-hover::before {
             content: '';
             position: absolute;
@@ -187,17 +200,17 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.05), transparent);
             transition: left 0.5s ease;
         }
         .card-hover:hover::before {
             left: 100%;
         }
-        /* CHANGED: Hover border and shadow to Green */
+        /* CHANGED: Hover border and shadow to Red */
         .card-hover:hover {
             transform: translateY(-4px);
-            border-color: #22c55e;
-            box-shadow: 0 0 30px rgba(34, 197, 94, 0.1);
+            border-color: #DC143C;
+            box-shadow: 0 0 30px rgba(220, 20, 60, 0.1);
         }
 
         .skill-bar {
@@ -219,25 +232,25 @@
             100% { transform: translateX(100%); }
         }
 
-        /* CHANGED: Typing cursor to Green */
+        /* CHANGED: Typing cursor to Red */
         .typing-cursor::after {
             content: '|';
             animation: blink 1s step-end infinite;
-            color: #22c55e;
+            color: c;
         }
 
-        /* CHANGED: Badge glow to Green RGB */
+        /* CHANGED: Badge glow to Red RGB */ 
         .badge-glow {
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+            box-shadow: 0 0 15px rgba(220, 20, 60, 0.2);
             transition: box-shadow 0.3s ease;
         }
         .badge-glow:hover {
-            box-shadow: 0 0 25px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 0 25px rgba(220, 20, 60, 0.4);
         }
 
-        /* CHANGED: Focus outline to Green */
+        /* CHANGED: Focus outline to Red */
         a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-            outline: 2px solid #22c55e;
+            outline: 2px solid #DC143C;
             outline-offset: 2px;
         }
     </style>
@@ -254,13 +267,33 @@
 
         const PROJECTS = [
             {
-                id: "bulawayo-parking",
-                icon: 'fa-square-parking',
-                title: "Bulawayo Parking Predictor",
-                description: "Smart city solution using ML (Random Forest) to forecast parking availability in Bulawayo CBD and key venues like Barbourfields.",
-                tech: ["Python", "Streamlit", "Scikit-Learn", "Pandas"],
+                id: "construction-website",
+                icon: 'fa-solid fa-building',
+                title: "Construction Website",
+                description: "A clean, responsive construction‑themed website showcasing front‑end fundamentals including semantic HTML, modular CSS, and interactive JavaScript.",
+                tech: ["HTML", "CSS", "JavaScript"],
+                status: "Project",
+                github: "https://github.com/Martinljuljduraj/construction-website",
+                demo: "https://construction-website-orpin-nine.vercel.app/"
+            },
+            {
+                id: "nextjs-dashboard",
+                icon: "fa-solid fa-chart-line",
+                title: "Next.js Admin Dashboard",
+                description: "A modern, responsive admin dashboard built with Next.js, featuring dynamic routing, server components, and clean UI patterns for data visualization and management.",
+                tech: ["Next.js", "React", "JavaScript", "Tailwind CSS"],
+                status: "Personal Project",
+                github: "https://github.com/Martinljuljduraj/nextjs-dashboard",
+                demo: "https://nextjs-dashboard-ten-silk-69.vercel.app/"
+            },
+            {
+                id: "multi-linear-regression",
+                icon: "fa-solid fa-chart-simple",
+                title: "Multi‑Linear Regression Model",
+                description: "A machine learning project implementing a multi‑linear regression model from scratch to predict house prices using features such as size, number of bedrooms, and age. Includes data preprocessing, normalization, gradient descent training, and parameter interpretation.",
+                tech: ["Python", "NumPy", "Pandas", "Matplotlib"],
                 status: "Academic Project",
-                github: "https://github.com/Blackout-26/Bulawayo-Parking-Predictor",
+                github: "https://github.com/Martinljuljduraj/MultiLinear-Regression",
                 demo: null
             }
         ];
@@ -269,56 +302,29 @@
         // Ensure the file names in your "images" folder match these exactly.
         const CERTIFICATIONS = [
             {
-                name: "Ethical Hacker",
-                org: "Cisco",
-                year: "Jan 2025",
-                credly: "https://www.credly.com/badges/d34d72fb-8707-4aae-b983-5e19c880238d/public_url",
-                image: "{% static 'ethical_hacker.png' %}"
+                name: "Web Development",
+                org: "Codepath",
+                year: "Aug 2025",
+                url: "{% static 'web_development.png' %}",
+                image: "{% static 'codepath_logo.png' %}"
             },
             {
-                name: "Endpoint Security",
-                org: "Cisco",
-                year: "Aug 2024",
-                credly: "https://www.credly.com/badges/d34d72fb-8707-4aae-b983-5e19c880238d/public_url",
-                image: "{% static 'endpoint_security.png' %}"
-            },
-            {
-                name: 'Network Defense',
-                org: 'Cisco',
-                year: 'Aug 2024',
-                credly: "https://www.credly.com/badges/02ecfdc9-1703-491b-9b95-ac75bdfdeca7/public_url",
-                image: "{% static 'network_defense.png' %}"
-            },
-            {
-                name: 'Introduction to Cybersecurity',
-                org: 'Cisco',
-                year: 'Jun 2024',
-                credly: "https://www.credly.com/badges/7ac53c35-26da-4e1f-b887-3bd5af7900c5/public_url",
-                image: "{% static 'intro_cybersecurity.png' %}"
-            },
-            {
-                name: 'Networking Basics',
-                org: 'Cisco',
-                year: 'Jul 2024',
-                credly: "https://www.credly.com/badges/98182649-97c0-4fd9-b75a-40d0e87a8eb4/public_url",
-                image: "{% static 'networking_basics.png' %}"
-            },
-            {
-                name: 'Networking Devices & Initial Configuration',
-                org: 'Cisco',
-                year: 'Aug 2024',
-                credly: "https://www.credly.com/badges/28e7cac4-63a3-48f4-b80c-9fdbc2255493/public_url",
-                image: "{% static 'networking_devices.png' %}"
+                name: "Technical Interview Prep",
+                org: "Codepath",
+                year: "Aug 2025",
+                url: "{% static 'tech_interview_prep.png' %}",
+                image: "{% static 'codepath_logo.png' %}"
             }
+            // Can add more certs here later
         ];
 
         const SOCIALS = [
-            { label: "GitHub", url: "https://github.com/Blackout-26" },
-            { label: "LinkedIn", url: "https://www.linkedin.com/in/prince-ngonyama-107473288" },
-            { label: "X", url: "https://x.com/real_Ngonyama" }
+            { label: "GitHub", url: "https://github.com/Martinljuljduraj" },
+            { label: "LinkedIn", url: "https://www.linkedin.com/in/martin-ljuljduraj/" },
+            { label: "Instagram", url: "https://www.instagram.com/lulgjuraj88/" }
         ];
 
-        const CONTACT_EMAIL = "ngonyamaprince26@gmail.com";
+        const CONTACT_EMAIL = "martin.nyc3@gmail.com";
 
         // ============================================
         // MATRIX RAIN COMPONENT (CANVAS)
@@ -420,7 +426,7 @@
             }, []);
 
             const navItems = [
-                { href: '#hero', label: 'Home', icon: 'fa-terminal' },
+                { href: '#home', label: 'Home', icon: 'fa-terminal' },
                 { href: '#about', label: 'About', icon: 'fa-user' },
                 { href: '#skills', label: 'Skills', icon: 'fa-microchip' },
                 { href: '#projects', label: 'Projects', icon: 'fa-code' },
@@ -438,10 +444,10 @@
                 >
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between h-16">
-                            <a href="#hero" className="flex items-center space-x-2 group">
+                            <a href="#home" className="flex items-center space-x-2 group">
                                 <span className="text-terminal-accent font-mono text-xl font-bold">{'<'}</span>
                                 <span className="font-mono font-semibold text-white group-hover:text-terminal-accent transition-colors text-sm sm:text-base">
-                                    Prince Ngonyama
+                                    Martin Ljuljduraj
                                 </span>
                                 <span className="text-terminal-accent font-mono text-xl font-bold">{'/>'}</span>
                             </a>
@@ -494,19 +500,19 @@
         };
 
         // ============================================
-        // HERO SECTION
+        // HOME SECTION
         // ============================================
-        const HeroSection = ({ onOpenTerminal }) => {
-            const headline = "Software Developer.";
-            const subline = "& Ethical Hacking Enthusiast";
+        const HomeSection = ({ onOpenTerminal }) => {
+            const headline = "Web Developer";
+            const subline = "& AI Enthusiast";
             const { displayText: headlineText, isComplete: headlineComplete } = useTypingEffect(headline, 60, 500);
             const { displayText: sublineText } = useTypingEffect(subline, 60, headlineComplete ? 0 : 2500);
 
             return (
                 <section
-                    id="hero"
+                    id="home"
                     className="relative min-h-screen flex items-center justify-center overflow-hidden circuit-pattern"
-                    aria-label="Hero section"
+                    aria-label="Home section"
                 >
                     <MatrixRain />
 
@@ -520,7 +526,7 @@
                             <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-terminal-orange mr-1.5 sm:mr-2"></span>
                             <span className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-terminal-green mr-2 sm:mr-4"></span>
                             <code className="font-mono text-xs sm:text-sm text-terminal-muted">
-                                student@NUST:~$
+                                martin@CUNY:~$
                             </code>
                         </div>
 
@@ -542,9 +548,9 @@
                         </h2>
 
                         <p className="text-base sm:text-lg md:text-xl text-terminal-muted max-w-2xl mx-auto mb-8 sm:mb-12 font-sans animate-fade-in px-4" style={ { animationDelay: '3s' } }>
-                            Computer Science student at <span className="text-white font-semibold">NUST</span> focused on
-                            <span className="text-terminal-accent"> programming</span>, secure system design, and
-                            <span className="text-terminal-green"> ethical hacking</span> fundamentals.
+                            Computer Science student at <span className="text-white font-semibold">CUNY Lehman College</span> focused on
+                            <span className="text-terminal-accent"> Web Development</span> and
+                            <span className="text-terminal-accent"> Artificial Intelligence.</span>
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate-slide-up px-4" style={ { animationDelay: '3.5s' } }>
@@ -583,7 +589,7 @@
             const [input, setInput] = useState('');
             const [history, setHistory] = useState([
                 { type: 'system', text: '╔══════════════════════════════════════════════╗' },
-                { type: 'system', text: '║     NUST Student Shell v1.0.0                ║' },
+                { type: 'system', text: '║     Martin Shell v1.0.0                ║' },
                 { type: 'system', text: '║     Type "help" for available commands       ║' },
                 { type: 'system', text: '╚══════════════════════════════════════════════╝' },
                 { type: 'output', text: '' },
@@ -591,11 +597,11 @@
                 { type: 'output', text: '  ─────────────────────────────────────────────' },
                 { type: 'output', text: '  about    │ Who am I?' },
                 { type: 'output', text: '  skills   │ View my technical skills' },
-                { type: 'output', text: '  projects │ List university projects' },
+                { type: 'output', text: '  projects │ List projects' },
                 { type: 'output', text: '  certs    │ View certifications' },
                 { type: 'output', text: '  socials  │ Social media links' },
                 { type: 'output', text: '  contact  │ Get contact information' },
-                { type: 'output', text: '  hack     │ Easter egg 🥚' },
+                { type: 'output', text: '  hack     │ Try it 😎' },
                 { type: 'output', text: '  clear    │ Clear terminal' },
                 { type: 'output', text: '  exit     │ Close terminal' },
                 { type: 'output', text: '' },
@@ -614,11 +620,11 @@
                     '├─────────────────────────────────────────────────┤',
                     '│  about      - Who am I?                        │',
                     '│  skills     - View my technical skills         │',
-                    '│  projects   - List university projects         │',
+                    '│  projects   - List projects         │',
                     '│  certs      - View certifications              │',
                     '│  socials    - Social media links               │',
                     '│  contact    - Get contact information          │',
-                    '│  hack       - Easter egg 🥚                    │',
+                    '│  hack       - Try it 😎                        │',
                     '│  clear      - Clear terminal                   │',
                     '│  exit       - Close terminal                   │',
                     '└─────────────────────────────────────────────────┘',
@@ -627,17 +633,17 @@
                 about: () => ([
                     '',
                     '╔══════════════════════════════════════════════════════╗',
-                    '║                 PRINCE NGONYAMA                      ║',
-                    '║            Computer Science Student @ NUST           ║',
+                    '║                 MARTIN LJULJDURAJ                    ║',
+                    '║          Computer Science Student @ Lehman           ║',
                     '╠══════════════════════════════════════════════════════╣',
                     '║                                                      ║',
-                    '║  📚 Studying Computer Science at NUST Zimbabwe       ║',
-                    '║  💻 Interested in Software Dev & Ethical Hacking    ║',
-                    '║  🛡️  Focusing on Endpoint Security & Network Defense ║',
-                    '║  📍 Based in Harare, Zimbabwe                       ║',
-                    '║  ✨ Open to Job & Freelance work                    ║',
+                    '║  📚 Studying Computer Science at CUNY Lehman         ║',
+                    '║  💻 Interested in Web Development and AI             ║',
+                    '║  👷🏻‍♂️ Building cool websites and apps                  ║',
+                    '║  📍 Based in Bronx, New York, USA                    ║',
+                    '║  ✨ Open to Job & Freelance work                     ║',
                     '║                                                      ║',
-                    '║  "Secure. Honest. Focused."                          ║',
+                    '║  "Driven. Focused. Forward-thinking."                ║',
                     '║                                                      ║',
                     '╚══════════════════════════════════════════════════════╝',
                     ''
@@ -657,10 +663,12 @@
                     '│  Django │ Flask │ REST APIs │ Tailwind CSS      │',
                     '└─────────────────────────────────────────────────┘',
                     '',
-                    '┌─ SECURITY ──────────────────────────────────────┐',
-                    '│  Network Defense │ Endpoint Security │ Linux   │',
-                    '│  Penetration Testing Basics                    │',
-                    '└─────────────────────────────────────────────────┘',
+                    '┌─ SOFTWARE ENGINEERING ───────────────────────────┐',
+                    '│  Data Structures & Algorithms                    │',
+                    '│  Object-Oriented Programming                     │',
+                    '│  Version Control (Git/GitHub)                    │',
+                    '│  Testing & Debugging                             │',
+                    '└──────────────────────────────────────────────────┘',
                     ''
                 ]),
                 projects: () => {
@@ -674,44 +682,42 @@
                     return CERTIFICATIONS.flatMap(cert => ([
                         '',
                         `🏅 ${cert.name} (${cert.year})`,
-                        `${cert.credly}`
+                        `${cert.url}`
                     ]));
                 },
                 socials: () => ([
                     '',
-                    '  🐙 GitHub    → github.com/Blackout-26',
-                    '  💼 LinkedIn  → linkedin.com/in/prince-ngonyama-107473288',
-                    '  ✖  X         → x.com/real_Ngonyama',
-                    '  📧 Email     → ngonyamaprince26@gmail.com',
+                    '  🐙 GitHub     → github.com/Martinljuljduraj',
+                    '  💼 LinkedIn   → linkedin.com/in/martin-ljuljduraj',
+                    '  ✨ Instagram  → instagram.com/lulgjuraj88',
+                    '  📧 Email      → martin.nyc3@gmail.com',
                     ''
                 ]),
                 contact: () => ([
                     '',
                     '┌─ CONTACT INFO ───────────────────────────────────┐',
                     '│                                                   │',
-                    '│  📧 Email: ngonyamaprince26@gmail.com            │',
-                    '│  📍 Location: Harare, Zimbabwe                   │',
-                    '│  🎓 University: NUST (National University of     │',
-                    '│                 Science and Technology)          │',
+                    '│  📧 Email: martin.nyc3@gmail.com.                 │',
+                    '│  📍 Location: Bronx, New York                     │',
+                    '│  🎓 University: CUNY Lehman College               │',
                     '│                                                   │',
-                    '│  Open to: Jobs, Freelance Work                   │',
+                    '│  Open to: Jobs, Freelance Work                    │',
                     '│                                                   │',
                     '└───────────────────────────────────────────────────┘',
                     ''
                 ]),
                 hack: () => ([
                     '',
-                    '  ⚠️  ACCESS GRANTED  ⚠️',
+                    '  ⚠️  ACCESS DENIED  ⚠️',
                     '',
-                    '  Just kidding! 😄',
+                    '  You not allowed to hack me, lol 😄',
                     '',
-                    '  But I appreciate your curiosity!',
-                    '  Ethical hacking is about learning,',
-                    '  permission, and making systems safer.',
+                    '  Maybe next time though, who knows (hehe)',
                     '',
-                    '  "The quieter you become,',
-                    '   the more you can hear."',
-                    '                        - Ram Dass',
+                    '  "Old habits die hard,',
+                    '   and if you are not careful,', 
+                    '   the person you used to be can overtake the person you are trying to become."', 
+                    '                        - Benjamin Franklin',
                     ''
                 ]),
                 clear: () => 'CLEAR',
@@ -824,7 +830,7 @@
                                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green"></div>
                             </div>
                             <span className="font-mono text-xs sm:text-sm text-terminal-muted">
-                                student@NUST:~
+                                martin@CUNY:~
                             </span>
                             <div className="w-12 sm:w-16"></div>
                         </div>
@@ -841,7 +847,7 @@
                                     )}
                                     {item.type === 'input' && (
                                         <div>
-                                            <span className="text-terminal-green">student@NUST</span>
+                                            <span className="text-terminal-red">martin@CUNY</span>
                                             <span className="text-terminal-muted">:</span>
                                             <span className="text-terminal-blue">~</span>
                                             <span className="text-terminal-muted">$ </span>
@@ -867,7 +873,7 @@
                                     )}
                                     {item.type === 'prompt' && (
                                         <div className="flex items-center">
-                                            <span className="text-terminal-green">student@NUST</span>
+                                            <span className="text-terminal-red">martin@CUNY</span>
                                             <span className="text-terminal-muted">:</span>
                                             <span className="text-terminal-blue">~</span>
                                             <span className="text-terminal-muted">$ </span>
@@ -911,13 +917,14 @@
                         </h2>
                         <div className="bg-terminal-surface border border-terminal-border rounded-xl p-6 sm:p-8">
                             <p className="text-terminal-text text-base sm:text-lg leading-relaxed mb-4">
-                                I am a Computer Science student at the <strong className="text-white">National University of Science and Technology (NUST)</strong>, Zimbabwe.
-                                My interests lie at the intersection of software development and cybersecurity, with a strong focus
-                                on ethical hacking, penetration testing fundamentals, and defensive security.
+                                I am a senior at <strong className="text-white">CUNY Herbert H. Lehman College</strong>, New York, USA.
+                                I am working toward my Bachelor of Science in Computer Science and set to graduate in Spring 2026. 
+                                My academic journey has pushed me to think critically, build creatively, and develop a strong 
+                                foundation in software development as I work toward becoming a web developer in the tech industry.
                             </p>
                             <p className="text-terminal-muted leading-relaxed mb-6">
-                                I enjoy building systems, breaking them in controlled environments, and understanding how attackers
-                                exploit weaknesses. I am currently open to job and freelance opportunities.
+                                I'm driven by the idea of creating clean, functional, and visually engaging digital experiences 
+                                that people actually enjoy using. I am currently open to job and freelance opportunities.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
@@ -927,7 +934,7 @@
                                     </div>
                                     <div>
                                         <div className="text-xs text-terminal-muted">Education</div>
-                                        <div className="text-sm text-white">NUST Zimbabwe</div>
+                                        <div className="text-sm text-white">CUNY Lehman College</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 p-3 bg-terminal-bg rounded-lg border border-terminal-border">
@@ -936,7 +943,7 @@
                                     </div>
                                     <div>
                                         <div className="text-xs text-terminal-muted">Location</div>
-                                        <div className="text-sm text-white">Harare, Zimbabwe</div>
+                                        <div className="text-sm text-white">Bronx, New York</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 p-3 bg-terminal-bg rounded-lg border border-terminal-border">
@@ -954,7 +961,7 @@
                                     </div>
                                     <div>
                                         <div className="text-xs text-terminal-muted">Focus</div>
-                                        <div className="text-sm text-white">Security & Development</div>
+                                        <div className="text-sm text-white">Web Development and AI</div>
                                     </div>
                                 </div>
                             </div>
@@ -985,14 +992,14 @@
                 },
                 {
                     id: "SYS_MOD_02",
-                    icon: "fa-shield-halved",
-                    title: "CYBERSECURITY_OPS",
-                    status: "ENGAGED",
+                    icon: "fa-code-branch",
+                    title: "SOFTWARE_ENGINEERING",
+                    status: "ACTIVE",
                     skills: [
-                        { name: "Network Defence", desc: "Traffic Analysis & Firewalling" },
-                        { name: "Endpoint Security", desc: "Host-Based Protection" },
-                        { name: "Pen-Testing", desc: "Vulnerability Assessment" },
-                        { name: "Linux CLI", desc: "System Administration" }
+                        { name: "Data Structures & Algorithms", desc: "Core problem-solving foundations" },
+                        { name: "Object-Oriented Programming", desc: "Clean, modular software design" },
+                        { name: "Version Control", desc: "Git & GitHub workflows" },
+                        { name: "Testing & Debugging", desc: "Reliable and maintainable code" }
                     ]
                 },
                 {
@@ -1012,21 +1019,23 @@
 
             return (
                 <section id="skills" className="py-24 bg-terminal-bg relative overflow-hidden font-mono">
+                    
                     {/* Background Grid Decoration */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(220,20,60,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(220,20,60,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
                     <div className="container mx-auto px-6 relative z-10">
+
                         {/* Section Header */}
-                        <div className="flex flex-col md:flex-row md:items-end gap-4 mb-16 border-b border-terminal-green/30 pb-4">
+                        <div className="flex flex-col md:flex-row md:items-end gap-4 mb-16 border-b border-terminal-red/30 pb-4">
                             <div>
                                 <h2 className="text-4xl font-bold text-white mb-2">
-                                    <span className="text-terminal-green mr-2">&gt;&gt;</span>
+                                    <span className="text-terminal-red mr-2">&gt;&gt;</span>
                                     SYSTEM_MODULES
                                 </h2>
                                 <p className="text-terminal-muted text-sm">Initializing technical competency database...</p>
                             </div>
                             <div className="md:ml-auto">
-                                <span className="inline-block px-3 py-1 bg-terminal-green/10 border border-terminal-green text-terminal-green text-xs rounded animate-pulse">
+                                <span className="inline-block px-3 py-1 bg-terminal-red/10 border border-terminal-red text-terminal-red text-xs rounded animate-pulse">
                                     ALL SYSTEMS NOMINAL
                                 </span>
                             </div>
@@ -1035,19 +1044,20 @@
                         {/* The Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {modules.map((mod, index) => (
-                                <div key={index} className="group bg-terminal-card border border-terminal-green/20 p-6 hover:border-terminal-green/60 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden rounded-lg shadow-lg shadow-terminal-green/5">
+                                <div key={index} className="group bg-terminal-card border border-terminal-red/20 p-6 hover:border-terminal-red/60 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden rounded-lg shadow-lg shadow-terminal-red/5">
                                     
                                     {/* Card Header */}
                                     <div className="flex justify-between items-start mb-6">
                                         <div className="flex items-center gap-3">
+
                                             {/* Icon Box */}
-                                            <div className="w-12 h-12 rounded bg-terminal-green/5 flex items-center justify-center border border-terminal-green/30 group-hover:bg-terminal-green group-hover:text-black transition-all duration-300">
-                                                <i className={`fas ${mod.icon} text-xl text-terminal-green group-hover:text-black`}></i>
+                                            <div className="w-12 h-12 rounded bg-terminal-red/5 flex items-center justify-center border border-terminal-red/30 group-hover:bg-terminal-red group-hover:text-black transition-all duration-300">
+                                                <i className={`fas ${mod.icon} text-xl text-terminal-red group-hover:text-black`}></i>
                                             </div>
                                             <div>
                                                 <h3 className="font-bold text-lg text-white tracking-wider">{mod.title}</h3>
-                                                <div className="flex items-center gap-2 text-[10px] text-terminal-green uppercase tracking-widest opacity-70">
-                                                    <span className="w-2 h-2 rounded-full bg-terminal-green animate-pulse"></span>
+                                                <div className="flex items-center gap-2 text-[10px] text-terminal-red uppercase tracking-widest opacity-70">
+                                                    <span className="w-2 h-2 rounded-full bg-terminal-red animate-pulse"></span>
                                                     {mod.id} // {mod.status}
                                                 </div>
                                             </div>
@@ -1057,10 +1067,10 @@
                                     {/* Skills List */}
                                     <ul className="space-y-3">
                                         {mod.skills.map((skill, i) => (
-                                            <li key={i} className="flex justify-between items-center border-b border-terminal-green/10 pb-2 last:border-0 group/item">
+                                            <li key={i} className="flex justify-between items-center border-b border-terminal-red/10 pb-2 last:border-0 group/item">
                                                 <div className="flex items-center gap-2">
-                                                    <span className="text-terminal-green/50 text-xs">&gt;</span>
-                                                    <span className="text-gray-200 font-medium group-hover/item:text-terminal-green transition-colors">
+                                                    <span className="text-terminal-red/50 text-xs">&gt;</span>
+                                                    <span className="text-gray-200 font-medium group-hover/item:text-terminal-red transition-colors">
                                                         {skill.name}
                                                     </span>
                                                 </div>
@@ -1073,7 +1083,7 @@
 
                                     {/* Decoration Corner */}
                                     <div className="absolute top-0 right-0 p-2 opacity-30 group-hover:opacity-100 transition-opacity">
-                                        <div className="w-8 h-8 border-t-2 border-r-2 border-terminal-green rounded-tr"></div>
+                                        <div className="w-8 h-8 border-t-2 border-r-2 border-terminal-red rounded-tr"></div>
                                     </div>
                                 </div>
                             ))}
@@ -1173,7 +1183,7 @@
                                 Certifications & Badges
                             </h2>
                             <p className="text-terminal-muted max-w-2xl mx-auto">
-                                Verified credentials from Cisco Networking Academy.
+                                Verified credentials.
                             </p>
                         </div>
 
@@ -1181,7 +1191,7 @@
                             {certifications.map((cert, index) => (
                                 <a
                                     key={index}
-                                    href={cert.credly}
+                                    href={cert.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="badge-glow block bg-terminal-surface border border-terminal-border rounded-xl p-5 sm:p-6 text-center hover:scale-105 transition-transform group"
@@ -1253,7 +1263,7 @@
 
             const socials = SOCIALS.map(s => ({
                 ...s,
-                icon: s.label === "X" ? "fa-brands fa-x-twitter" : 
+                icon: s.label === "Instagram" ? "fa-brands fa-instagram" : 
                       s.label === "GitHub" ? "fab fa-github" : 
                       "fab fa-linkedin"
             })).concat([
@@ -1363,16 +1373,16 @@
                                             </div>
                                             <div>
                                                 <div className="text-xs text-terminal-muted">Location</div>
-                                                <div className="text-sm text-white">Harare, Zimbabwe</div>
+                                                <div className="text-sm text-white">Bronx, NY, USA</div>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4 p-3 bg-terminal-bg rounded-lg">
-                                            <div className="p-2 bg-terminal-green/20 rounded-lg">
-                                                <i className="fas fa-graduation-cap text-terminal-green"></i>
+                                            <div className="p-2 bg-terminal-blue/20 rounded-lg">
+                                                <i className="fas fa-graduation-cap text-terminal-blue"></i>
                                             </div>
                                             <div>
                                                 <div className="text-xs text-terminal-muted">University</div>
-                                                <div className="text-sm text-white">NUST Zimbabwe</div>
+                                                <div className="text-sm text-white">CUNY Lehman College</div>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4 p-3 bg-terminal-bg rounded-lg">
@@ -1425,13 +1435,13 @@
                         {/* Logo */}
                         <div className="flex items-center space-x-2">
                             <span className="text-terminal-accent font-mono text-xl font-bold">{'<'}</span>
-                            <span className="font-mono font-semibold text-white">Prince Ngonyama</span>
+                            <span className="font-mono font-semibold text-white">Martin Ljuljduraj</span>
                             <span className="text-terminal-accent font-mono text-xl font-bold">{'/>'}</span>
                         </div>
 
                         <div className="text-terminal-muted text-sm font-mono">
-                            <span className="text-terminal-accent">©</span> {new Date().getFullYear()} Prince Ngonyama.
-                            <span className="block sm:inline sm:ml-1">Secure. Honest. Focused.</span>
+                            <span className="text-terminal-accent">©</span> {new Date().getFullYear()} Martin Ljuljduraj.
+                            <span className="block sm:inline sm:ml-1">Driven. Focused. Forward-thinking.</span>
                         </div>
 
                         <div className="flex items-center gap-2 text-sm font-mono">
@@ -1452,7 +1462,7 @@
             return (
                 <div className="min-h-screen bg-terminal-bg text-terminal-text">
                     <Navigation />
-                    <HeroSection onOpenTerminal={() => setIsTerminalOpen(true)} />
+                    <HomeSection onOpenTerminal={() => setIsTerminalOpen(true)} />
                     <AboutSection />
                     <SkillsSection />
                     <ProjectsSection />
