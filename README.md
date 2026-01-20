@@ -1,8 +1,11 @@
-# 🛡️ My Cybersecurity & Tech Portfolio
+# 🛡️ My Tech Portfolio
 
-This is the backend repository for my personal portfolio website. It serves as a central hub to showcase my certifications, technical projects, and career progress in **Cybersecurity** and **Network Engineering**.
+Building my career at the intersection of modern web development and practical AI applications, my work blends clean UI engineering, scalable front‑end architecture, and hands‑on experimentation with intelligent systems. I enjoy creating digital experiences that feel intuitive, responsive, and thoughtfully designed — whether that’s a polished website, a data‑driven dashboard, or an AI‑powered tool.
 
-As I continue to gain certifications (Cisco, Ethical Hacking) and build new tools, this platform allows me to dynamically update my skills and showcase my growth.
+As I continue to gain certifications (Codepath) and build new tools, this platform allows me to dynamically update my skills and showcase my growth.
+
+## Portfolio Demo
+https://youtu.be/BP0sAsc7h-c
 
 ## 🚀 Tech Stack
 * **Backend Framework:** Django 6.0 (Python)
